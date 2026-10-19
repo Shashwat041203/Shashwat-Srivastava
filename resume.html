@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shashwat Srivastava – L2 Azure & Wintel Infrastructure Administrator Resume</title>
+  <meta name="description" content="Resume of Shashwat Srivastava – L2 Azure & Wintel Infrastructure Administrator at HCLTech with expertise in Hyper-V, SCVMM, Azure Arc, BMC TSSA, Zerto zero-downtime migration, and PowerShell automation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── DARK THEME (DEFAULT) ── */
+    :root, [data-theme="dark"] {
+      --bg:          #0a0e14;
+      --bg-card:     #111827;
+      --bg-card2:    #1c2436;
+      --accent:      #38bdf8;
+      --accent-sec:  #818cf8;
+      --accent-alt:  #c084fc;
+      --green:       #10b981;
+      --teal:        #14b8a6;
+      --amber:       #f59e0b;
+      --text:        #f8fafc;
+      --text-muted:  #94a3b8;
+      --text-dim:    #64748b;
+      --border:      rgba(56, 189, 248, 0.25);
+      --border-sub:  rgba(255, 255, 255, 0.08);
+      --gradient:    linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --shadow:      0 8px 32px rgba(0, 0, 0, 0.45);
+      --r:           16px;
+    }
+
+    /* ── LIGHT THEME ── */
+    [data-theme="light"] {
+      --bg:          #f8fafc;
+      --bg-card:     #ffffff;
+      --bg-card2:    #f1f5f9;
+      --accent:      #0284c7;
+      --accent-sec:  #4f46e5;
+      --accent-alt:  #7e22ce;
+      --green:       #059669;
+      --teal:        #0d9488;
+      --amber:       #d97706;
+      --text:        #0f172a;
+      --text-muted:  #334155;
+      --text-dim:    #64748b;
+      --border:      rgba(2, 132, 199, 0.28);
+      --border-sub:  rgba(203, 213, 225, 0.8);
+      --gradient:    linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #7e22ce 100%);
+      --shadow:      0 8px 30px rgba(148, 163, 184, 0.25);
+      --r:           16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 45% at 15% 5%, rgba(56, 189, 248, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 55% at 85% 90%, rgba(129, 140, 248, 0.05) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── FLOATING CONTROLS BAR ── */
+    .controls-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 6px 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 200;
+      backdrop-filter: blur(12px);
+    }
+    .ctrl-btn {
+      background: transparent;
+      color: var(--text);
+      border: none;
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .ctrl-btn:hover {
+      background: var(--bg-card2);
+      transform: translateY(-1px);
+    }
+    .ctrl-btn.primary {
+      background: var(--gradient);
+      color: #fff;
+    }
+    .ctrl-btn.primary:hover {
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 36px 22px 90px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 40px 44px 34px;
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .header::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--gradient);
+    }
+    .header::after {
+      content: ''; position: absolute;
+      right: -80px; top: -80px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
+    }
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .name {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .h-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .h-loc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-family: 'Fira Code', monospace;
+    }
+
+    .contact-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .c-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-family: 'Fira Code', monospace;
+      color: var(--text-muted);
+      background: var(--bg-card2);
+      border: 1px solid var(--border-sub);
+      border-radius: 8px;
+      padding: 6px 14px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .c-item:hover {
+      border-color: var(--border);
+      color: var(--accent);
+    }
+
+    /* badge row */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--bg-card2);
+      border: 1px solid var(--border-sub);
+      color: var(--accent);
+    }
+
+    /* ── TWO-COL ── */
+    .body-grid {
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 22px;
+      align-items: start;
+    }
+    .main-col { display: flex; flex-direction: column; gap: 22px; }
+    .side-col { display: flex; flex-direction: column; gap: 22px; }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-sub);
+      border-radius: var(--r);
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+      transition: border-color 0.25s;
+    }
+    .card:hover { border-color: var(--border); }
+
+    /* ── SECTION LABEL ── */
+    .sec {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .sec::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* ── SUMMARY ── */
+    .summary { font-size: 13.5px; color: var(--text-muted); line-height: 1.75; }
+    .summary b { color: var(--text); }
+
+    /* ── EXPERIENCE ── */
+    .exp { margin-bottom: 24px; }
+    .exp:last-child { margin-bottom: 0; }
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .exp-role { font-size: 15.5px; font-weight: 700; color: var(--text); }
+    .exp-period {
+      font-size: 11.5px;
+      font-family: 'Fira Code', monospace;
+      color: var(--text-dim);
+      background: var(--bg-card2);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border-sub);
+      white-space: nowrap;
+    }
+    .exp-co {
+      font-size: 13.5px;
+      color: var(--accent-sec);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .sub-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin: 16px 0 8px;
+    }
+
+    /* bullets */
+    ul.bl { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    ul.bl li {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+    ul.bl li::before {
+      content: '▹'; position: absolute; left: 0;
+      color: var(--accent); font-size: 12px; top: 2px;
+    }
+    .hl { color: var(--text); font-weight: 600; }
+
+    /* divider */
+    .div { height: 1px; background: var(--border-sub); margin: 24px 0; }
+
+    /* ── KEY PROJECTS ── */
+    .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+    .proj-card {
+      background: var(--bg-card2);
+      border: 1px solid var(--border-sub);
+      border-radius: 10px;
+      padding: 14px 16px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .proj-card:hover { border-color: var(--border); }
+    .proj-name { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .proj-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── METRICS ── */
+    .metrics { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .met {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      text-align: center;
+      flex: 1;
+      min-width: 90px;
+    }
+    .met-v {
+      font-size: 20px;
+      font-weight: 800;
+      display: block;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .met-l { font-size: 10.5px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-top: 2px; }
+
+    /* ── CERTS ── */
+    .cert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-sub);
+    }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+      background: var(--gradient);
+    }
+    .cert-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .cert-sub { font-size: 11.5px; color: var(--text-dim); margin-top: 2px; }
+
+    /* ── SKILLS ── */
+    .sk-group { margin-bottom: 16px; }
+    .sk-group:last-child { margin-bottom: 0; }
+    .sk-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .sk-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 11px;
+      border-radius: 6px;
+      background: var(--bg-card2);
+      border: 1px solid var(--border-sub);
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .pill:hover {
+      background: var(--bg-card);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    /* ── EDUCATION ── */
+    .edu { margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border-sub); }
+    .edu:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .edu-deg { font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .edu-inst { font-size: 12.5px; color: var(--accent); font-weight: 600; margin-bottom: 2px; }
+    .edu-meta { font-size: 11.5px; color: var(--text-dim); font-family: 'Fira Code', monospace; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff !important; color: #111 !important; }
+      body::before { display: none !important; }
+      .controls-bar { display: none !important; }
+      :root, [data-theme="dark"], [data-theme="light"] {
+        --bg: #ffffff;
+        --bg-card: #f8fafc;
+        --bg-card2: #f1f5f9;
+        --text: #0f172a;
+        --text-muted: #334155;
+        --text-dim: #64748b;
+        --border: #cbd5e1;
+        --border-sub: #e2e8f0;
+        --shadow: none;
+      }
+      .name { -webkit-text-fill-color: #0284c7 !important; color: #0284c7 !important; }
+      .page { padding: 10px !important; }
+      .card { break-inside: avoid; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
+      .proj-card { break-inside: avoid; border: 1px solid #e2e8f0 !important; }
+    }
+
+    @media (max-width: 760px) {
+      .body-grid { grid-template-columns: 1fr; }
+      .header-inner { grid-template-columns: 1fr; }
+      .contact-col { align-items: flex-start; }
+      .name { font-size: 28px; }
+      .header { padding: 26px 20px; }
+      .card { padding: 20px 18px; }
+      .proj-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating Controls Bar -->
+<div class="controls-bar">
+  <button id="themeToggle" class="ctrl-btn" title="Toggle Light/Dark Theme">
+    <span id="themeIcon">☀️</span>
+    <span id="themeLabel">Light</span>
+  </button>
+  <button class="ctrl-btn primary" onclick="window.print()">
+    <span>🖨️ Save as PDF</span>
+  </button>
+  <a href="./" class="ctrl-btn" title="Return to Portfolio">
+    <span>← Portfolio</span>
+  </a>
+</div>
+
+<div class="page">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <div class="name">Shashwat Srivastava</div>
+        <div class="h-title">L2 Azure &amp; Wintel Infrastructure Administrator</div>
+        <div class="h-loc">Hyper-V · SCVMM · Azure Arc · PCOP Hybrid Cloud · HCLTech</div>
+        <div class="badge-row">
+          <span class="badge">AZ-104</span>
+          <span class="badge">AZ-140</span>
+          <span class="badge">AZ-900</span>
+          <span class="badge">AWS CCP</span>
+          <span class="badge">Oracle OCI</span>
+          <span class="badge">TCS Cyber</span>
+          <span class="badge">700+ Nodes</span>
+        </div>
+      </div>
+      <div class="contact-col">
+        <div class="c-item">📍 Prayagraj, UP, India</div>
+        <a href="tel:+919140897148" class="c-item">📱 +91 91408 97148</a>
+        <a href="mailto:shashwatsrivastava0412@gmail.com" class="c-item">📧 shashwatsrivastava0412@gmail.com</a>
+        <a href="https://www.linkedin.com/in/shashwat-srivastava-87471a24a/" target="_blank" rel="noopener noreferrer" class="c-item">💼 LinkedIn Profile</a>
+        <div class="c-item">🎓 BITS Pilani · 2024–2028</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ BODY GRID ═══ -->
+  <div class="body-grid">
+
+    <!-- ═══ MAIN COLUMN ═══ -->
+    <div class="main-col">
+
+      <!-- SUMMARY -->
+      <div class="card">
+        <div class="sec">🧑‍💻 Executive Summary</div>
+        <p class="summary">
+          <b>L2 Cloud &amp; Wintel Infrastructure Administrator</b> at HCLTech (Ericsson Project) with proven enterprise experience
+          administering <b>700+ hybrid nodes</b> (encompassing physical bare-metal servers and virtual machines) integrated across
+          <b>SCVMM with Azure Arc</b> within a mission-critical <b>PCOP environment</b>. Proven track record in orchestrating cross-platform
+          virtualization migrations (VMware ESXi to Hyper-V via Zerto) strictly within client maintenance downtime windows,
+          requiring <b>zero extra downtime (0 unplanned outages)</b>. Expert in vulnerability remediation (<b>40,000+ vulnerabilities resolved</b> via custom
+          <b>BMC TSSA automation packages</b>), monthly patch compliance via BMC TSSA and Azure Update Manager (&gt;99.5% compliance),
+          server commissioning and decommissioning, PowerShell automation scripts, and Storage Spaces Direct (S2D) high availability.
+        </p>
+        <div class="metrics">
+          <div class="met"><span class="met-v">700+</span><span class="met-l">PCOP Nodes</span></div>
+          <div class="met"><span class="met-v">0 Outage</span><span class="met-l">Zero Extra Downtime</span></div>
+          <div class="met"><span class="met-v">40k+</span><span class="met-l">Vulns Fixed (TSSA)</span></div>
+          <div class="met"><span class="met-v">&gt;99.5%</span><span class="met-l">Patch Compliance</span></div>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="card">
+        <div class="sec">💼 Professional Experience</div>
+
+        <div class="exp">
+          <div class="exp-top">
+            <div class="exp-role">L2 Cloud &amp; Wintel Infrastructure Administrator</div>
+            <div class="exp-period">2023 – Present</div>
+          </div>
+          <div class="exp-co">HCLTech · Ericsson Project (Global Telecommunications Infrastructure)</div>
+
+          <ul class="bl">
+            <li>Administer a hybrid fleet of <span class="hl">700+ nodes</span> across physical bare-metal servers and virtual machines integrated via <span class="hl">SCVMM and Azure Arc</span> in a high-security PCOP infrastructure.</li>
+            <li>Spearheaded large-scale VM migrations from VMware ESXi to Hyper-V using <span class="hl">Zerto</span>, completed strictly within approved maintenance windows with <span class="hl">zero extra downtime (0 unplanned outages)</span>.</li>
+            <li>Remediated and resolved <span class="hl">40,000+ on-premise server vulnerabilities</span> by authoring custom remediation and configuration packages on the <span class="hl">BMC TSSA automation tool</span>.</li>
+            <li>Direct monthly patch management cycles utilizing <span class="hl">BMC TSSA</span> and <span class="hl">Azure Update Manager</span>, consistently upholding a &gt;99.5% fleet compliance rate.</li>
+            <li>Manage complete physical and virtual server lifecycles, executing standard <span class="hl">server commissioning and decommissioning</span> workflows, OS baseline provisioning (Windows Server 2016–2025), and system retirement.</li>
+            <li>Engineered custom <span class="hl">PowerShell automation scripts</span> to manage and add users to <span class="hl">Local Users and Groups</span> across remote servers, alongside disk space remediation and diagnostic routines.</li>
+            <li>Maintain high availability across <span class="hl">Storage Spaces Direct (S2D)</span> and MTI hyperconverged clusters, managing Cluster Shared Volumes (CSV), storage pools, and quorum health.</li>
+            <li>Provide rapid L2 incident resolution for P1/P2 incidents under formal Change Requests (CR) within enterprise SLAs.</li>
+          </ul>
+
+          <div class="sub-title">🔑 Enterprise Projects</div>
+          <div class="proj-grid">
+            <div class="proj-card">
+              <div class="proj-name">⚡ Zerto 0-Outage VM Migration</div>
+              <div class="proj-desc">Migrated 700+ VMs across clusters under scheduled downtime with zero extra downtime or business disruption.</div>
+            </div>
+            <div class="proj-card">
+              <div class="proj-name">🛡️ 40k+ Vulnerability Remediation</div>
+              <div class="proj-desc">Engineered BMC TSSA packaging to remediate 40,000+ CVE vulnerabilities across on-premise servers.</div>
+            </div>
+            <div class="proj-card">
+              <div class="proj-name">☁️ Azure Arc &amp; SCVMM Integration</div>
+              <div class="proj-desc">Integrated 700+ physical and virtual PCOP nodes into Azure Arc for centralized hybrid governance.</div>
+            </div>
+            <div class="proj-card">
+              <div class="proj-name">🖥️ Server Commissioning &amp; Decommissioning</div>
+              <div class="proj-desc">End-to-end hardware racking, provisioning, baseline hardening, and secure server retirement.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div><!-- /main-col -->
+
+    <!-- ═══ SIDEBAR ═══ -->
+    <div class="side-col">
+
+      <!-- CERTIFICATIONS -->
+      <div class="card">
+        <div class="sec">🏅 Industry Certifications</div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Microsoft Certified: Azure Administrator Associate (AZ-104)</div>
+            <div class="cert-sub">Microsoft</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Microsoft Certified: Azure Virtual Desktop Specialty (AZ-140)</div>
+            <div class="cert-sub">Microsoft</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+            <div class="cert-sub">Microsoft</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">AWS Certified Cloud Practitioner (CLF-C02)</div>
+            <div class="cert-sub">Amazon Web Services</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Oracle Cloud Infrastructure Foundations Associate (1Z0-1085)</div>
+            <div class="cert-sub">Oracle</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">TCS Cybersecurity Certification</div>
+            <div class="cert-sub">Tata Consultancy Services</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+      <div class="card">
+        <div class="sec">⚙️ Core Competencies</div>
+
+        <div class="sk-group">
+          <div class="sk-lbl">Cloud &amp; Hybrid</div>
+          <div class="sk-pills">
+            <span class="pill">Azure Arc</span>
+            <span class="pill">Azure Update Mgr</span>
+            <span class="pill">Azure Virtual Desktop</span>
+            <span class="pill">AWS EC2</span>
+            <span class="pill">Oracle OCI</span>
+          </div>
+        </div>
+
+        <div class="sk-group">
+          <div class="sk-lbl">Virtualization &amp; Clustering</div>
+          <div class="sk-pills">
+            <span class="pill">Hyper-V</span>
+            <span class="pill">SCVMM</span>
+            <span class="pill">VMware ESXi</span>
+            <span class="pill">vCenter</span>
+            <span class="pill">Zerto Replication</span>
+            <span class="pill">Storage Spaces Direct (S2D)</span>
+            <span class="pill">MTI Clusters</span>
+            <span class="pill">CSV</span>
+          </div>
+        </div>
+
+        <div class="sk-group">
+          <div class="sk-lbl">Server Lifecycle &amp; Security</div>
+          <div class="sk-pills">
+            <span class="pill">Server Commissioning</span>
+            <span class="pill">Server Decommissioning</span>
+            <span class="pill">Windows Server 2016–2025</span>
+            <span class="pill">Local Users &amp; Groups Scripting</span>
+            <span class="pill">BitLocker</span>
+          </div>
+        </div>
+
+        <div class="sk-group">
+          <div class="sk-lbl">Patching &amp; Vulnerabilities</div>
+          <div class="sk-pills">
+            <span class="pill">BMC TSSA</span>
+            <span class="pill">TSSA Custom Packages</span>
+            <span class="pill">40k+ Remediation</span>
+            <span class="pill">Azure Update Manager</span>
+          </div>
+        </div>
+
+        <div class="sk-group">
+          <div class="sk-lbl">Automation &amp; ITSM</div>
+          <div class="sk-pills">
+            <span class="pill">PowerShell 7 / 5.1</span>
+            <span class="pill">BMC ITSM</span>
+            <span class="pill">BMC AIOps</span>
+            <span class="pill">BHOM</span>
+            <span class="pill">BHCO</span>
+            <span class="pill">Change Management (CR)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="card">
+        <div class="sec">🎓 Education</div>
+
+        <div class="edu">
+          <div class="edu-deg">Bachelor of Science (B.Sc.) in Computer Design</div>
+          <div class="edu-inst">Birla Institute of Technology and Science (BITS), Pilani</div>
+          <div class="edu-meta">2024 – 2028 (Undergraduate)</div>
+        </div>
+
+        <div class="edu">
+          <div class="edu-deg">Senior Secondary (Class XII)</div>
+          <div class="edu-inst">Tagore Public School, Prayagraj</div>
+          <div class="edu-meta">2022 &nbsp;|&nbsp; 85%</div>
+        </div>
+
+        <div class="edu">
+          <div class="edu-deg">Secondary (Class X)</div>
+          <div class="edu-inst">Tagore Public School, Prayagraj</div>
+          <div class="edu-meta">2020 &nbsp;|&nbsp; 89%</div>
+        </div>
+      </div>
+
+    </div><!-- /side-col -->
+
+  </div><!-- /body-grid -->
+
+</div><!-- /page -->
+
+<script>
+  // Sync theme with main portfolio app localStorage or default to dark
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeLabel = document.getElementById('themeLabel');
+  const html = document.documentElement;
+
+  function applyTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    if (theme === 'light') {
+      themeIcon.textContent = '🌙';
+      themeLabel.textContent = 'Dark';
+    } else {
+      themeIcon.textContent = '☀️';
+      themeLabel.textContent = 'Light';
+    }
+    localStorage.setItem('shashwat_portfolio_theme', theme);
+  }
+
+  const savedTheme = localStorage.getItem('shashwat_portfolio_theme') || localStorage.getItem('habib_theme') || 'dark';
+  applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    applyTheme(current === 'light' ? 'dark' : 'light');
+  });
+</script>
+</body>
+</html>
